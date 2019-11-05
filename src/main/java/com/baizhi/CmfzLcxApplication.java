@@ -16,6 +16,7 @@ public class CmfzLcxApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(CmfzLcxApplication.class, args);
+        System.out.println("---------")
     }
     @Bean
     public HttpMessageConverters fastJsonHttpMessageConverters() {
