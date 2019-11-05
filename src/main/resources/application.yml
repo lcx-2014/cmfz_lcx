@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    type: org.apache.commons.dbcp.BasicDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cmfz
+    username: root
+    password: root
+  mvc:
+    view:
+      prefix: /
+      suffix: .jsp
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 100MB
+server:
+  port: 8989
+  servlet:
+    context-path: /cmfz_lcx
+    jsp:
+      init-parameters:
+        development: true
+mybatis:
+  mapper-locations: com/baizhi/mapper/*.xml
