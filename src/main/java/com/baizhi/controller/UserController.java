@@ -169,6 +169,7 @@ public class UserController {
             request1.getSession().setAttribute("code",code);
              map.put("status",true);
 
+
         }
 
         return map;

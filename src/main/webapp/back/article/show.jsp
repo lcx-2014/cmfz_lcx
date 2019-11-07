@@ -76,7 +76,7 @@
             data:$("#article-form").serialize(),
             datatype:"json",
             success:function () {
-                $("#article-show-table").trigger("reloadGrid");
+               $("#article-show-table").trigger("reloadGrid");
 
 
             }

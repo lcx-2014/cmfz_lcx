@@ -1,5 +1,7 @@
 package com.baizhi.service;
 
+import com.baizhi.annotation.ClearRedisCache;
+import com.baizhi.annotation.RedisCache;
 import com.baizhi.dao.ArticleDao;
 import com.baizhi.entity.Article;
 import com.baizhi.entity.Chapter;
@@ -19,6 +21,7 @@ public class ArticleServiceImpl implements ArticleService {
     private ArticleDao articleDao;
     @Override
     @Transactional(propagation = Propagation.SUPPORTS)
+    @RedisCache
     public Map<String, Object> selectAll(Integer page, Integer rows) {
         Map<String, Object> map = new HashMap<>();
         Article article = new Article();
@@ -34,6 +37,7 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
+    @ClearRedisCache
     public String add(Article article) {
         article.setId(UUID.randomUUID().toString());
         article.setCreateDate(new Date());
@@ -45,6 +49,7 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
+    @ClearRedisCache
     public void edit(Article article) {
         int i = articleDao.updateByPrimaryKeySelective(article);
         if(i==0){
@@ -53,6 +58,7 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
+    @ClearRedisCache
     public void del(String id) {
         int i = articleDao.deleteByPrimaryKey(id);
         if(i==0){
